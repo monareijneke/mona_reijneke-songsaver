@@ -3,38 +3,46 @@ import SongForm from "./components/SongForm";
 import SongList from "./components/SongList";
 
 function SongOverview() {
-  const [songItems, setSongItems] = useState([
-    { title: "title 1", artist: "Artist 1", Genre: "Pop", rate: "1" },
-  ]);
-  const [newSong] = useState("");
+  const [songItems, setSongItems] = useState([]);
 
-  function addSong(song) {
+  function addSong(event) {
     setSongItems(
       [...songItems].concat([
         {
           id: songItems.length + 1,
-          title: song.title,
-          artist: song.artist,
-          genre: song.genre,
-          rate: song.rate,
+          title: event.value.title,
+          artist: event.value.artist,
+          genre: event.value.genre,
+          rating: event.value.rating,
         },
       ])
     );
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const value = Object.fromEntries(data.entries());
+    console.log({ value });
+    addSong({ value });
+    // setSong("");
+  }
+
+  function DeleteSong(song) {
+    console.log(song);
+    alert("clicked the delete song button");
+  }
+  function EmptyList() {
+    setSongItems([]);
+  }
+
   return (
     <div>
-      <SongForm addSong={addSong} />
-      {/* <table style={{ width: "100%" }}>
-        <tr className="song-header">
-          <th className="song-row__item">Song</th>
-          <th className="song-row__item">Artist</th>
-          <th className="song-row__item">Genre</th>
-          <th className="song-row__item">Rating</th>
-        </tr>
-      </table> */}
+      <SongForm handleSubmit={handleSubmit} addSong={addSong} />
       <SongList
-      //   songs={songs}
+        songs={songItems}
+        EmptyList={EmptyList}
+        DeleteSong={DeleteSong}
       />
     </div>
   );
