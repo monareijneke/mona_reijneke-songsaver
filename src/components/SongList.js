@@ -1,16 +1,27 @@
 function SongList(songs) {
-  console.log(songs);
-  const title = songs.songs.map(song => (
-    <tr id={songs.songs.id}>
-      <td>{song.title}</td>
-      <td>{song.artist}</td>
-      <td>{song.genre}</td>
-      <td>{song.rating}</td>
-      <td className="delsong" onclick={songs.DeleteSong}>
-        delete
-      </td>
-    </tr>
-  ));
+  console.log(songs.songs);
+  const title = songs.songs.map(song =>
+    !song.done ? (
+      <>
+        <tr id={song.id}>
+          <td>{song.title}</td>
+          <td>{song.artist}</td>
+          <td>{song.genre}</td>
+          <td>{song.rating}</td>
+          <td
+            className="delsong"
+            onClick={() => {
+              songs.deleteSong(song.id);
+            }}
+          >
+            delete
+          </td>
+        </tr>
+      </>
+    ) : (
+      ""
+    )
+  );
   return (
     <div>
       <table style={{ width: "100%" }}>
@@ -26,7 +37,7 @@ function SongList(songs) {
       </table>
       <br />
       <br />
-      <button onClick={songs.EmptyList}>Clear List</button>
+      <button onClick={songs.emptyList}>Clear List</button>
     </div>
   );
 }

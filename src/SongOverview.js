@@ -14,6 +14,7 @@ function SongOverview() {
           artist: event.value.artist,
           genre: event.value.genre,
           rating: event.value.rating,
+          done: false,
         },
       ])
     );
@@ -28,11 +29,13 @@ function SongOverview() {
     // setSong("");
   }
 
-  function DeleteSong(song) {
-    console.log(song);
-    alert("clicked the delete song button");
+  function deleteSong(id) {
+    console.log(id);
+    const newList = songItems.filter(song => id !== song.id);
+    setSongItems(newList);
   }
-  function EmptyList() {
+
+  function emptyList() {
     setSongItems([]);
   }
 
@@ -41,8 +44,8 @@ function SongOverview() {
       <SongForm handleSubmit={handleSubmit} addSong={addSong} />
       <SongList
         songs={songItems}
-        EmptyList={EmptyList}
-        DeleteSong={DeleteSong}
+        emptyList={emptyList}
+        deleteSong={deleteSong}
       />
     </div>
   );
