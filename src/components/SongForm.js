@@ -1,7 +1,6 @@
 import React from "react";
 
 function SongForm(props) {
-  console.log(props);
   return (
     <div>
       <form onSubmit={props.handleSubmit}>

@@ -9,12 +9,11 @@ function SongOverview() {
     setSongItems(
       [...songItems].concat([
         {
-          id: songItems.length + 1,
+          id: Date.now(),
           title: event.value.title,
           artist: event.value.artist,
           genre: event.value.genre,
           rating: event.value.rating,
-          done: false,
         },
       ])
     );
@@ -26,7 +25,6 @@ function SongOverview() {
     const value = Object.fromEntries(data.entries());
     console.log({ value });
     addSong({ value });
-    // setSong("");
   }
 
   function deleteSong(id) {
