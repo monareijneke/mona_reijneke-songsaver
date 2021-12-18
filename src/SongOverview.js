@@ -38,7 +38,11 @@ function SongOverview() {
   }
 
   return (
-    <div>
+    <div className="main">
+      <header className="App-header">
+        <h1>Playlist van Mona Reijneke</h1>
+      </header>
+
       <SongForm handleSubmit={handleSubmit} addSong={addSong} />
       <SongList
         songs={songItems}
