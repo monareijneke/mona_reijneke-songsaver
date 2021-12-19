@@ -9,7 +9,7 @@ function Fetch() {
   const endpointUrl =
     "https://covid-19-data.p.rapidapi.com/country/code?code=nl";
   const rapidApiHost = "covid-19-data.p.rapidapi.com";
-  const rapidApiKey = "5662818d8amsh9cf7508a9179565p1f979fjsn215cb579d201";
+  const rapidApiKey = "****";
   const options = {
     headers: {
       "x-rapidapi-host": rapidApiHost,
