@@ -28,7 +28,6 @@ function SongOverview() {
   }
 
   function deleteSong(id) {
-    console.log(id);
     const newList = songItems.filter(song => id !== song.id);
     setSongItems(newList);
   }

@@ -40,11 +40,6 @@ nav a:hover {
   color: black;
 }
 
-nav a.active {
-  background-color: #4d78b9;
-  color: white;
-}
-
 input,
 select {
   width: 50%;
@@ -87,8 +82,9 @@ table {
 }
 th {
   background-color: #b7b9bb;
-  color: rgb(252, 249, 249);
+  color: white;
 }
+
 td,
 th {
   border: 1px solid #dddddd;
@@ -99,4 +95,8 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
   border: 1px solid #070000;
+}
+
+p {
+  text-align: center;
 }
